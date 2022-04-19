@@ -17,3 +17,7 @@ RSpec.describe ProjectsController, type: :controller do
     end
   end
 end
+
+class PostsControllerTest < ActionController::TestCase
+  include Devise::Test::IntegrationHelpers # Rails >= 5
+end
