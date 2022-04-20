@@ -1,12 +1,5 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
-  before_action: user_signed_in?
-  before_action: current_user
-  before action: user_session
-end
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
-  protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
@@ -23,18 +16,15 @@ end
 
   # GET /projects/new
   def new
-    before_action :authenticate_user!
     @project = Project.new
   end
 
   # GET /projects/1/edit
   def edit
-    before_action :authenticate_user!
   end
 
   # POST /projects or /projects.json
   def create
-    before_action :authenticate_user!
     @project = Project.new(project_params)
 
     respond_to do |format|
